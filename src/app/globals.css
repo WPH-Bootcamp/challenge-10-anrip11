@@ -1,130 +1,297 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
 
-@custom-variant dark (&:is(.dark *));
+@theme {
+  /* 1. Font Family (Menggunakan Nunito sesuai Figma) */
+  --font-sans: 'Nunito';
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
-}
+  /* 2. Ketebalan Font (Font Weights) */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
 
-:root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
+  /* 3. Tipografi Display & Text Skala Figma (Gabungan Ukuran, Line Height, & Letter Spacing) */
+  --text-display-3xl: 3.75rem;
+  --text-display-3xl--line-height: 4.5rem;
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
-}
+  --text-display-2xl: 3rem;
+  --text-display-2xl--line-height: 3.75rem;
+  --letter-spacing-display-2xl: -2%;
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-  html {
-    @apply font-sans;
-  }
+  --text-display-xl: 2.5rem;
+  --text-display-xl--line-height: 3rem;
+  --letter-spacing-display-xl: -2%;
+
+  --text-display-lg: 2.25rem;
+  --text-display-lg--line-height: 2.75rem;
+  --letter-spacing-display-lg: -2%;
+
+  --text-display-md: 2rem;
+  --text-display-md--line-height: 2.5rem;
+  --text-display-sm: 1.75rem;
+  --text-display-sm--line-height: 2.375rem;
+  --text-display-xs: 1.5rem;
+  --text-display-xs--line-height: 2.25rem;
+
+  --text-text-xl: 1.25rem;
+  --text-text-xl--line-height: 2.125rem;
+  --text-text-lg: 1.125rem;
+  --text-text-lg--line-height: 2rem;
+  --text-text-md: 1rem;
+  --text-text-md--line-height: 1.875rem;
+  --text-text-sm: 1.75rem;
+  --text-text-sm--line-height: 1.75rem;
+  --text-text-xs: 0.75rem;
+  --text-text-xs--line-height: 1.5rem;
+
+  /* ==========================================================================
+     1. FONT & TYPOGRAPHY FOUNDATIONS
+     ========================================================================== */
+  --font-sans: 'Nunito';
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  --text-display-3xl: 3.75rem;
+  --text-display-3xl--line-height: 4.5rem;
+  --text-display-2xl: 3rem;
+  --text-display-2xl--line-height: 3.75rem;
+  --letter-spacing-display-2xl: -2%;
+  --text-display-xl: 2.5rem;
+  --text-display-xl--line-height: 3rem;
+  --letter-spacing-display-xl: -2%;
+  --text-display-lg: 2.25rem;
+  --text-display-lg--line-height: 2.75rem;
+  --letter-spacing-display-lg: -2%;
+  --text-display-md: 2rem; /* 32px */
+  --text-display-md--line-height: 2.5rem;
+  --text-display-sm: 1.75rem;
+  --text-display-sm--line-height: 2.375rem;
+  --text-display-xs: 1.5rem;
+  --text-display-xs--line-height: 2.25rem;
+  --text-text-xl: 1.25rem;
+  --text-text-xl--line-height: 2.125rem;
+  --text-text-lg: 1.125rem;
+  --text-text-lg--line-height: 2rem;
+  --text-text-md: 1rem;
+  --text-text-md--line-height: 1.875rem;
+  --text-text-sm: 0.875rem;
+  --text-text-sm--line-height: 1.75rem;
+  --text-text-xs: 0.75rem;
+  --text-text-xs--line-height: 1.5rem;
+
+  /* ==========================================================================
+     2. COLOR PALETTE FOUNDATIONS (SINKRON FIGMA)
+     ========================================================================== */
+
+  /* --- Base Colors --- */
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* --- Primary Color (Interactive elements) --- */
+  --color-primary: #c12116;
+
+  /* --- Neutral Colors (Grays for backgrounds, borders, text) --- */
+  --color-neutral-25: #fdfdfd;
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e9eaeb;
+  --color-neutral-300: #d5d7da;
+  --color-neutral-400: #a4a7ae;
+  --color-neutral-500: #717680;
+  --color-neutral-600: #535862;
+  --color-neutral-700: #414651;
+  --color-neutral-800: #252b37;
+  --color-neutral-900: #181d27;
+  --color-neutral-950: #0a0d12;
+
+  /* --- Accent Colors (Status & Alerts) --- */
+  --color-accent-red: #d9206e;
+  --color-accent-green: #079455;
+  --color-accent-yellow: #fdb022;
+
+  /* ==========================================================================
+     1. FONT & TYPOGRAPHY FOUNDATIONS
+     ========================================================================== */
+  --font-sans: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  --text-display-3xl: 3.75rem;
+  --text-display-3xl--line-height: 4.5rem;
+  --text-display-2xl: 3rem;
+  --text-display-2xl--line-height: 3.75rem;
+  --letter-spacing-display-2xl: -2%;
+  --text-display-xl: 2.5rem;
+  --text-display-xl--line-height: 3rem;
+  --letter-spacing-display-xl: -2%;
+  --text-display-lg: 2.25rem;
+  --text-display-lg--line-height: 2.75rem;
+  --letter-spacing-display-lg: -2%;
+  --text-display-md: 2rem;
+  --text-display-md--line-height: 2.5rem;
+  --text-display-sm: 1.75rem;
+  --text-display-sm--line-height: 2.375rem;
+  --text-display-xs: 1.5rem;
+  --text-display-xs--line-height: 2.25rem;
+
+  --text-text-xl: 1.25rem;
+  --text-text-xl--line-height: 2.125rem;
+  --text-text-lg: 1.125rem;
+  --text-text-lg--line-height: 2rem;
+  --text-text-md: 1rem;
+  --text-text-md--line-height: 1.875rem;
+  --text-text-sm: 0.875rem;
+  --text-text-sm--line-height: 1.75rem;
+  --text-text-xs: 0.75rem;
+  --text-text-xs--line-height: 1.5rem;
+
+  /* ==========================================================================
+     2. COLOR PALETTE FOUNDATIONS
+     ========================================================================== */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-primary: #c12116;
+
+  --color-neutral-25: #fdfdfd;
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e9eaeb;
+  --color-neutral-300: #d5d7da;
+  --color-neutral-400: #a4a7ae;
+  --color-neutral-500: #717680;
+  --color-neutral-600: #535862;
+  --color-neutral-700: #414651;
+  --color-neutral-800: #252b37;
+  --color-neutral-900: #181d27;
+  --color-neutral-950: #0a0d12;
+
+  --color-accent-red: #d9206e;
+  --color-accent-green: #079455;
+  --color-accent-yellow: #fdb022;
+
+  /* ==========================================================================
+     3. BORDER RADIUS FOUNDATIONS (SINKRON FIGMA UNTITLED UI)
+     ========================================================================== */
+  --radius-none: 0rem; /* 0px */
+  --radius-xxs: 0.125rem; /* 2px */
+  --radius-xs: 0.25rem; /* 4px */
+  --radius-sm: 0.375rem; /* 6px */
+  --radius-md: 0.5rem; /* 8px */
+  --radius-lg: 0.625rem; /* 10px */
+  --radius-xl: 0.75rem; /* 12px */
+  --radius-2xl: 1rem; /* 16px */
+  --radius-3xl: 1.25rem; /* 20px */
+  --radius-4xl: 1.5rem; /* 24px */
+  --radius-full: 9999px; /* ∞ */
+
+  /* ==========================================================================
+     1. FONT & TYPOGRAPHY FOUNDATIONS
+     ========================================================================== */
+  --font-sans: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  --text-display-3xl: 3.75rem;
+  --text-display-3xl--line-height: 4.5rem;
+  --text-display-2xl: 3rem;
+  --text-display-2xl--line-height: 3.75rem;
+  --letter-spacing-display-2xl: -2%;
+  --text-display-xl: 2.5rem;
+  --text-display-xl--line-height: 3rem;
+  --letter-spacing-display-xl: -2%;
+  --text-display-lg: 2.25rem;
+  --text-display-lg--line-height: 2.75rem;
+  --letter-spacing-display-lg: -2%;
+  --text-display-md: 2rem;
+  --text-display-md--line-height: 2.5rem;
+  --text-display-sm: 1.75rem;
+  --text-display-sm--line-height: 2.375rem;
+  --text-display-xs: 1.5rem;
+  --text-display-xs--line-height: 2.25rem;
+
+  --text-text-xl: 1.25rem;
+  --text-text-xl--line-height: 2.125rem;
+  --text-text-lg: 1.125rem;
+  --text-text-lg--line-height: 2rem;
+  --text-text-md: 1rem;
+  --text-text-md--line-height: 1.875rem;
+  --text-text-sm: 0.875rem;
+  --text-text-sm--line-height: 1.75rem;
+  --text-text-xs: 0.75rem;
+  --text-text-xs--line-height: 1.5rem;
+
+  /* ==========================================================================
+     2. COLOR PALETTE FOUNDATIONS
+     ========================================================================== */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-primary: #c12116;
+
+  --color-neutral-25: #fdfdfd;
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e9eaeb;
+  --color-neutral-300: #d5d7da;
+  --color-neutral-400: #a4a7ae;
+  --color-neutral-500: #717680;
+  --color-neutral-600: #535862;
+  --color-neutral-700: #414651;
+  --color-neutral-800: #252b37;
+  --color-neutral-900: #181d27;
+  --color-neutral-950: #0a0d12;
+
+  --color-accent-red: #d9206e;
+  --color-accent-green: #079455;
+  --color-accent-yellow: #fdb022;
+
+  /* ==========================================================================
+     3. BORDER RADIUS FOUNDATIONS
+     ========================================================================== */
+  --radius-none: 0rem; /* 0px */
+  --radius-xxs: 0.125rem; /* 2px */
+  --radius-xs: 0.25rem; /* 4px */
+  --radius-sm: 0.375rem; /* 6px */
+  --radius-md: 0.5rem; /* 8px */
+  --radius-lg: 0.625rem; /* 10px */
+  --radius-xl: 0.75rem; /* 12px */
+  --radius-2xl: 1rem; /* 16px */
+  --radius-3xl: 1.25rem; /* 20px */
+  --radius-4xl: 1.5rem; /* 24px */
+  --radius-full: 9999px; /* ∞ */
+
+  /* ==========================================================================
+     4. SPACING FOUNDATIONS (SINKRON FIGMA UNTITLED UI)
+     ========================================================================== */
+  --spacing-none: 0rem; /* 0px */
+  --spacing-xxs: 0.125rem; /* 2px */
+  --spacing-xs: 0.25rem; /* 4px */
+  --spacing-sm: 0.375rem; /* 6px */
+  --spacing-md: 0.5rem; /* 8px */
+  --spacing-lg: 0.75rem; /* 12px */
+  --spacing-xl: 1rem; /* 16px */
+  --spacing-2xl: 1.25rem; /* 20px */
+  --spacing-3xl: 1.5rem; /* 24px */
+  --spacing-4xl: 2rem; /* 32px */
+  --spacing-5xl: 2.5rem; /* 40px */
+  --spacing-6xl: 3rem; /* 48px */
+  --spacing-7xl: 4rem; /* 64px */
+  --spacing-8xl: 5rem; /* 80px */
+  --spacing-9xl: 6rem; /* 96px */
+  --spacing-10xl: 8rem; /* 128px */
+  --spacing-11xl: 8.75rem; /* 140px */
 }
